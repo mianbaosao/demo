@@ -1,13 +1,13 @@
-package org.example.suanfa;
+package org.example.suanfa.project.aop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SuanfaApplication {
+public class SulfaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SuanfaApplication.class, args);
+        SpringApplication.run(SulfaApplication.class, args);
     }
 
 }

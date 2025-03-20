@@ -1,4 +1,4 @@
-package org.example.suanfa.project;
+package org.example.suanfa.project.kuaikan;
 
 import java.util.ArrayList;
 import java.util.List;
