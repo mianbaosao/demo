@@ -1,0 +1,7 @@
+
+^
+java:S1192"HDefine a constant instead of duplicating this literal "uv:set:" 3 times.(¸ÎÜ¼
+I
+java:S1874".Remove this use of "expire"; it is deprecated.(¾ÖÒ™üÿÿÿÿ
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(±›Ü¶
+N	java:S106?"9Replace this use of System.out or System.err by a logger.(ÿñþ‡
