@@ -7,6 +7,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 异步任务内嵌异步计算响应时长
+ */
 public class AsyncDemo {
 
     // 模拟一个线程池
