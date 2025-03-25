@@ -3,17 +3,16 @@ package org.example.suanfa.designDemo.单例;
 
 
 public class SingletonTest {
-        private static volatile SingletonTest INSTANCE;
-        private SingletonTest() {}
-    public static SingletonTest getInstance() {
-            if (INSTANCE == null) {
-                synchronized (SingletonTest.class) {
-                    if (INSTANCE == null) {
-                        INSTANCE = new SingletonTest();
-                    }
-                }
-            }
-            return INSTANCE;
-    }
-
+       private static  volatile SingletonTest instance;
+       public  SingletonTest(){};
+       public static SingletonTest getInstance(){
+           if (instance == null){
+               synchronized (SingletonTest.class){
+                   if (instance == null){
+                       instance = new SingletonTest();
+                   }
+               }
+           }
+           return instance;
+       }
 }
