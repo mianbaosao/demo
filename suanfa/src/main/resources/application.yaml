@@ -12,8 +12,8 @@ dubbo:
     port: 20880
   registry:
     address: multicast://224.5.6.7:1234
-#  provider:
-#    filter: loggingFilter,rpcResultMonitorFilter
+  provider:
+    filter: loggingFilter,rpcResultMonitorFilter
     # 禁用本地优先调用
     injvm: false
   # 禁用本地服务暴露，强制使用网络RPC

@@ -1,4 +1,4 @@
-package org.example.suanfa.designDemo.工厂策略;
+package org.example.suanfa.designDemo.工厂策略.prod;
 
 // 赠品活动策略
 public class GiftActivity implements ActivityStrategy {

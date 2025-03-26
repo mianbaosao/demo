@@ -1,4 +1,4 @@
-package org.example.suanfa.designDemo.工厂策略;
+package org.example.suanfa.designDemo.工厂策略.prod;
 
 // 活动类型枚举
 public enum ActivityType {

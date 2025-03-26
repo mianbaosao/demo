@@ -1,4 +1,4 @@
-package org.example.suanfa.designDemo.工厂策略;
+package org.example.suanfa.designDemo.工厂策略.prod;
 
 public class Client {
     public static void main(String[] args) {
