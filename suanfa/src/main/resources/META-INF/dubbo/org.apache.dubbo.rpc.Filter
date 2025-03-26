@@ -1,0 +1,2 @@
+rpcMonitorFilter=org.example.suanfa.project.dubboFilter.filter.filter.RpcResultMonitorFilter
+loggingFilter=org.example.suanfa.project.dubboFilter.filter.LoggingFilter 
