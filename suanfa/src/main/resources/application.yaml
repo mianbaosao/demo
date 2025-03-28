@@ -14,17 +14,9 @@ dubbo:
     address: multicast://224.5.6.7:1234
   provider:
     filter: loggingFilter,rpcResultMonitorFilter
-    # 禁用本地优先调用
-    injvm: false
-  # 禁用本地服务暴露，强制使用网络RPC
-  service:
-    shutdown:
-      wait: 10000
-  # 全局禁用本地调用
-  reference:
-    injvm: false
-  config-center:
-    timeout: 10000
+  consumer:
+    check: false
+    filter: loggingFilter,rpcResultMonitorFilter
 
 logging:
   level:
