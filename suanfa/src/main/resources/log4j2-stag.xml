@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30" strict="true"
+               packages="org.apache.logging.log4j.core,io.sentry.log4j2,com.kuaikan.common.log.appender" schema="Log4J-V2.2.xsd">
+
+    <Appenders>
+        <RollingFile name="file" fileName="/data/logs/role-game-service/role-game-service.log"
+                     filePattern="/data/logs/role-game-service/role-game-service.log.%d{yyyyMMdd}.gz">
+            <PatternLayout pattern="[%-5p %d{yyyy-MM-dd HH:mm:ss.SSS}] [%t][%traceId] [%X{SessionId}] %l [%m]%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+
+        <Sentry name="Sentry"/>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="com.kuaikan" level="debug" additivity="false">
+            <AppenderRef ref="file"/>
+            <AppenderRef ref="Sentry" level="error"/>
+        </Logger>
+
+        <Logger name="com.alibaba" level="debug" additivity="false">
+            <AppenderRef ref="file"/>
+        </Logger>
+
+        <Root level="debug">
+            <AppenderRef ref="file"/>
+            <AppenderRef ref="Sentry" level="error"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
