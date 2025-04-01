@@ -1,25 +1,27 @@
 package org.example.suanfa.thread;
 
+import java.util.HashMap;
+
 public class test {
-    private static final Object lock = new Object();
-    private static int state = 0;
+   private static Object lock = new Object();
+   private static int state=0;
+   public static void main(String[] args) {
+       Thread a=new Thread(()->print("A",0));
+       Thread b=new Thread(()->print("B",1));
+       Thread c=new Thread(()->print("C",2));
 
-    public static void main(String[] args) {
-        Thread t1=new Thread(()->print("A",0));
-        Thread t2=new Thread(()->print("B",1));
-        Thread t3=new Thread(()->print("C",2));
-        t1.start();
-        t2.start();
-        t3.start();
-    }
+       a.start();
+       b.start();
+       c.start();
+   }
 
-    private static void print(String a, int cnt) {
-        for (int i = 0; i < 10; i++) {
-            synchronized(lock){
-                while (state % 3!=cnt) {
+    private static void print(String a, int i) {
+        for (int i1 = 0; i1 < 10; i1++) {
+            synchronized (lock) {
+                while (state % 3 != i) {
                     try {
                         lock.wait();
-                    } catch (InterruptedException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
