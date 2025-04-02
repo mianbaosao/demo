@@ -115,25 +115,34 @@
             <artifactId>guava</artifactId>
             <version>31.1-jre</version> <!-- 使用最新稳定版 -->
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <profile>
-                <id>stag</id>
-                <activation>
-                    <activeByDefault>true</activeByDefault>
-                </activation>
-                <properties>
-                    <env>stag</env>
-                </properties>
-            </profile>
-            <profile>
-                <id>prod</id>
-                <properties>
-                    <env>prod</env>
-                </properties>
-            </profile>
+<!--            <profile>-->
+<!--                <id>stag</id>-->
+<!--                <activation>-->
+<!--                    <activeByDefault>true</activeByDefault>-->
+<!--                </activation>-->
+<!--                <properties>-->
+<!--                    <env>stag</env>-->
+<!--                </properties>-->
+<!--            </profile>-->
+<!--            <profile>-->
+<!--                <id>prod</id>-->
+<!--                <properties>-->
+<!--                    <env>prod</env>-->
+<!--                </properties>-->
+<!--            </profile>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
