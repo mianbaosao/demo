@@ -1,6 +1,11 @@
 spring:
   application:
     name: suanfa
+  data:
+    redis:
+      host: localhost
+      password:
+      database: 0
 server:
   port: 9090
 dubbo:
@@ -17,7 +22,6 @@ dubbo:
   consumer:
     check: false
     filter: loggingFilter,rpcResultMonitorFilter
-
 logging:
   level:
     org.example.suanfa.project.dubboFilter: DEBUG
