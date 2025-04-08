@@ -1,8 +1,12 @@
 package org.example.suanfa.project.codeVerse.judege0;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import lombok.extern.slf4j.Slf4j;
 
 import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionRequest;
 import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionResponse;
@@ -16,10 +20,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.excel.EasyExcel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import static com.alibaba.com.caucho.hessian.io.HessianInputFactory.log;
+
 @Service
+@Slf4j
 public class Judge0Service {
     private static final AtomicInteger successCount = new AtomicInteger(0);
     private static final String JUDGE0_URL = "http://113.44.169.164:2358";
@@ -77,4 +86,28 @@ public class Judge0Service {
             System.err.println("查询失败: " + e.getMessage());
         }
     }
+
+    public Object upload(MultipartFile file) {
+        if (file == null || file.isEmpty()) {
+            throw new IllegalArgumentException("上传文件为空");
+        }
+
+        try {
+            // 读取 Excel 第一张 sheet 的内容（默认）
+            List<List<String>> result = EasyExcel.read(file.getInputStream())
+                    .sheet() // 默认读取第一个 sheet
+                    .headRowNumber(0) // 无表头，全部按 List<String> 读入
+                    .doReadSync(); // 同步读取全部内容
+
+            log.info("Excel 上传解析结果: {}", result);
+
+            // 这里可以返回前 10 条记录
+            return result.size() > 10 ? result.subList(0, 10) : result;
+
+        } catch (IOException e) {
+            log.error("读取 Excel 失败", e);
+            throw new RuntimeException("读取 Excel 文件失败，请检查文件格式是否正确");
+        }
+    }
+
 }
