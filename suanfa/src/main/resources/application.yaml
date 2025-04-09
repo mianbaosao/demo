@@ -1,13 +1,22 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: suanfa
+  datasource:
+    username: root
+    password: he13140303042
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC
   data:
     redis:
       host: localhost
       password:
       database: 0
+
 server:
   port: 9090
+
 dubbo:
   application:
     name: demo-filter
@@ -22,6 +31,7 @@ dubbo:
   consumer:
     check: false
     filter: loggingFilter,rpcResultMonitorFilter
+
 logging:
   level:
     org.example.suanfa.project.dubboFilter: DEBUG

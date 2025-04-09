@@ -1,7 +1,6 @@
 package org.example.suanfa.project.codeVerse.judege0;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -9,23 +8,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import lombok.extern.slf4j.Slf4j;
 
 import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionRequest;
-import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionResponse;
-import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionTask;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.excel.EasyExcel;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import static com.alibaba.com.caucho.hessian.io.HessianInputFactory.log;
 
 @Service
 @Slf4j

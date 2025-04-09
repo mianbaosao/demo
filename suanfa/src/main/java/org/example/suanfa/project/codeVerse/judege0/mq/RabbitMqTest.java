@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -20,7 +19,6 @@ public class RabbitMqTest {
     //消息队列名称
     private final static String QUEUE_NAME = "hello";
 
-    @Test
     public void sendMessages() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -52,7 +50,7 @@ public class RabbitMqTest {
     }
 
 
-    @Test
+
     public void consumeMessages() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");

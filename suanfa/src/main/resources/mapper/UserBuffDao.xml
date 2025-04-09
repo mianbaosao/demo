@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.suanfa.project.buff.dao.UserBuffDao">
+
+    <resultMap type="org.example.suanfa.project.buff.entity.UserBuff" id="UserBuffMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="buffId" column="buff_id" jdbcType="INTEGER"/>
+        <result property="currentLevel" column="current_level" jdbcType="INTEGER"/>
+        <result property="expireTime" column="expire_time" jdbcType="TIMESTAMP"/>
+        <result property="isActive" column="is_active" jdbcType="INTEGER"/>
+        <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+        <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserBuffMap">
+        select
+id, user_id, buff_id, current_level, expire_time, is_active, created_at, updated_at
+        from user_buff
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserBuffMap">
+        select
+id, user_id, buff_id, current_level, expire_time, is_active, created_at, updated_at
+        from user_buff
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="buffId != null">
+                and buff_id = #{buffId}
+            </if>
+            <if test="currentLevel != null">
+                and current_level = #{currentLevel}
+            </if>
+            <if test="expireTime != null">
+                and expire_time = #{expireTime}
+            </if>
+            <if test="isActive != null">
+                and is_active = #{isActive}
+            </if>
+            <if test="createdAt != null">
+                and created_at = #{createdAt}
+            </if>
+            <if test="updatedAt != null">
+                and updated_at = #{updatedAt}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from user_buff
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="buffId != null">
+                and buff_id = #{buffId}
+            </if>
+            <if test="currentLevel != null">
+                and current_level = #{currentLevel}
+            </if>
+            <if test="expireTime != null">
+                and expire_time = #{expireTime}
+            </if>
+            <if test="isActive != null">
+                and is_active = #{isActive}
+            </if>
+            <if test="createdAt != null">
+                and created_at = #{createdAt}
+            </if>
+            <if test="updatedAt != null">
+                and updated_at = #{updatedAt}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into user_buff(user_id, buff_id, current_level, expire_time, is_active, created_at, updated_at)
+        values (#{userId}, #{buffId}, #{currentLevel}, #{expireTime}, #{isActive}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into user_buff(user_id, buff_id, current_level, expire_time, is_active, created_at, updated_at)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.userId}, #{entity.buffId}, #{entity.currentLevel}, #{entity.expireTime}, #{entity.isActive}, #{entity.createdAt}, #{entity.updatedAt})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into user_buff(user_id, buff_id, current_level, expire_time, is_active, created_at, updated_at)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.buffId}, #{entity.currentLevel}, #{entity.expireTime}, #{entity.isActive}, #{entity.createdAt}, #{entity.updatedAt})
+        </foreach>
+        on duplicate key update
+user_id = values(user_id),
+buff_id = values(buff_id),
+current_level = values(current_level),
+expire_time = values(expire_time),
+is_active = values(is_active),
+created_at = values(created_at),
+updated_at = values(updated_at)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update user_buff
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="buffId != null">
+                buff_id = #{buffId},
+            </if>
+            <if test="currentLevel != null">
+                current_level = #{currentLevel},
+            </if>
+            <if test="expireTime != null">
+                expire_time = #{expireTime},
+            </if>
+            <if test="isActive != null">
+                is_active = #{isActive},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from user_buff where id = #{id}
+    </delete>
+
+</mapper>
+
