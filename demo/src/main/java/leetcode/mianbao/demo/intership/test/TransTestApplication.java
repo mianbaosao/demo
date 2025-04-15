@@ -4,10 +4,10 @@ import leetcode.mianbao.demo.intership.convert.CaseSourceConvert;
 import leetcode.mianbao.demo.intership.po.CaseSource;
 import leetcode.mianbao.demo.intership.po.CaseSourceDTO;
 import leetcode.mianbao.demo.intership.po.CaseSourceOther;
-import org.apache.commons.beanutils.BeanUtils;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+import org.apache.commons.beanutils.BeanUtils;
+
+//@SpringBootApplication
 public class TransTestApplication {
     public static void main(String[] args) throws Exception {
         // 创建一个 CaseSource 对象

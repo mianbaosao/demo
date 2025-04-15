@@ -16,8 +16,8 @@ public class BuffVO {
     private Integer duration;    // 持续时间（秒）
     private String desc;         // 效果描述文案
     private Integer levelCost;   // 升到下一级所需道具数量
-    private List<BuffStageConf> stageConfs;  // 各等级效果配置
-
+    private List<BuffStageConf> stageConf;  // 各等级效果配置
+    private BuffStageConf stageConf1;
     // 动态计算字段（非持久化）
     private Boolean canUpgrade;  // 是否可升级（根据道具是否充足计算）
     private Boolean isMaxLevel;  // 是否已达满级

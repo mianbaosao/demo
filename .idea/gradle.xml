@@ -6,6 +6,9 @@
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/leetcode" />
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/shiyan" />
+      </GradleProjectSettings>
     </option>
   </component>
 </project>

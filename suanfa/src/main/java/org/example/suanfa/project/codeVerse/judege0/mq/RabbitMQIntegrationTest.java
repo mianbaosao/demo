@@ -1,10 +1,11 @@
 package org.example.suanfa.project.codeVerse.judege0.mq;
 
+import org.testng.annotations.Test;
 
 public class RabbitMQIntegrationTest {
     private static final String QUEUE_NAME = "test_queue";
 
-
+    @Test
     public void testSendAndConsume() throws Exception {
         // 先启动消费者线程
         Thread consumerThread = new Thread(() -> {

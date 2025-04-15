@@ -11,6 +11,7 @@ import org.example.suanfa.project.buff.entity.BuffConfig;
 import org.example.suanfa.project.buff.entity.BuffLevelConfig;
 import org.example.suanfa.project.buff.entity.UserBuff;
 import org.example.suanfa.project.buff.service.BuffService;
+import org.example.suanfa.project.buff.vo.BuffParam;
 import org.example.suanfa.project.buff.vo.BuffVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +52,7 @@ public class BuffServiceImpl implements BuffService {
             vo.setIsMaxLevel(userBuff.getCurrentLevel() >= buffConfig.getMaxLevel());
             
             // 设置各等级配置
-            vo.setStageConfs(levelConfigs.stream()
+            vo.setStageConf(levelConfigs.stream()
                     .map(lc -> new BuffVO.BuffStageConf()
                             .setLevel(lc.getLevel())
                             .setEffectDesc(lc.getEffectDescription()))
@@ -140,5 +141,12 @@ public class BuffServiceImpl implements BuffService {
                 .orElseThrow(() -> new RuntimeException("获取升级后Buff信息失败"));
 
 
+    }
+
+    @Override
+    public BuffVO testVO(BuffParam param) {
+        BuffVO vo = new BuffVO();
+        vo=param.initVO(param);
+        return vo;
     }
 }

@@ -1,4 +1,4 @@
-package org.example.suanfa.project.kuaikan;
+package org.example.suanfa.project.kuaikan.stream;
 
 import java.util.ArrayList;
 import java.util.List;
