@@ -6,7 +6,7 @@ import leetcode.mianbao.demo.intership.po.CaseSourceDTO;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-11T19:05:38+0800",
+    date = "2025-04-18T18:11:24+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_202 (Oracle Corporation)"
 )
 public class CaseSourceConvertImpl implements CaseSourceConvert {
