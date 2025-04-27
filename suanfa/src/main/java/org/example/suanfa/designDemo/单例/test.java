@@ -1,5 +1,8 @@
 package org.example.suanfa.designDemo.单例;
 
+/**
+ * 单例测试
+ */
 public class test {
     public static volatile test instance;
     public test() {}
