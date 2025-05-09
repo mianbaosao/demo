@@ -1,14 +1,13 @@
 package org.example.suanfa.designDemo.工厂策略.stag;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class ActivityFactory implements InitializingBean {

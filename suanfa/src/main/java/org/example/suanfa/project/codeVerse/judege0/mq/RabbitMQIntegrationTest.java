@@ -1,6 +1,7 @@
 package org.example.suanfa.project.codeVerse.judege0.mq;
 
-import org.testng.annotations.Test;
+
+import org.junit.Test;
 
 public class RabbitMQIntegrationTest {
     private static final String QUEUE_NAME = "test_queue";

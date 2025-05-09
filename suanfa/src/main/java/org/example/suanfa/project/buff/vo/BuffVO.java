@@ -1,12 +1,14 @@
 package org.example.suanfa.project.buff.vo;
 
-import java.util.List;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
+import java.util.List;
 
 @Data
 @Accessors(chain = true)
+@NoArgsConstructor
 public class BuffVO {
 
     private Integer lv;          // 当前等级（0级时不显示）
@@ -22,6 +24,50 @@ public class BuffVO {
     private Boolean canUpgrade;  // 是否可升级（根据道具是否充足计算）
     private Boolean isMaxLevel;  // 是否已达满级
 
+    public void setMaxLevel(Boolean maxLevel) {
+        isMaxLevel = maxLevel;
+    }
+
+    public void setCanUpgrade(Boolean canUpgrade) {
+        this.canUpgrade = canUpgrade;
+    }
+
+    public void setStageConf1(BuffStageConf stageConf1) {
+        this.stageConf1 = stageConf1;
+    }
+
+    public void setStageConf(List<BuffStageConf> stageConf) {
+        this.stageConf = stageConf;
+    }
+
+    public void setLevelCost(Integer levelCost) {
+        this.levelCost = levelCost;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public void setMaxLv(Integer maxLv) {
+        this.maxLv = maxLv;
+    }
+
+    public void setLv(Integer lv) {
+        this.lv = lv;
+    }
+
     @Data
     @Accessors(chain = true)
     public static class BuffStageConf {
@@ -30,4 +76,5 @@ public class BuffVO {
         private String effectDesc;  // 该等级效果描述
 
     }
+
 }

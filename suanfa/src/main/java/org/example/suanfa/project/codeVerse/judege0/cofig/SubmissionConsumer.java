@@ -1,11 +1,12 @@
 package org.example.suanfa.project.codeVerse.judege0.cofig;
 
-import jakarta.annotation.Resource;
 
 import org.example.suanfa.project.codeVerse.judege0.Judge0Service;
 import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionRequest;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 @Component
 public class SubmissionConsumer {

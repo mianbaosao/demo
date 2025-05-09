@@ -1,26 +1,17 @@
     package org.example.suanfa.project.codeVerse.judege0.controller;
 
-    import org.example.suanfa.project.codeVerse.excel.ExcelUtils;
+
+    import com.google.common.util.concurrent.RateLimiter;
     import org.example.suanfa.project.codeVerse.judege0.Judge0Service;
-
     import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionRequest;
-    import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionResponse;
-
     import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionResult;
     import org.example.suanfa.project.codeVerse.judege0.entity.SubmissionTask;
     import org.springframework.amqp.rabbit.core.RabbitTemplate;
-    import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.data.redis.core.RedisTemplate;
     import org.springframework.web.bind.annotation.*;
-    import org.springframework.web.multipart.MultipartFile;
-    import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+    import javax.annotation.Resource;
     import java.util.UUID;
-    import java.util.concurrent.CompletableFuture;
-
-    import jakarta.annotation.Resource;
-
-    import com.google.common.util.concurrent.RateLimiter;
 
     @RestController
     @RequestMapping("/api/test")
@@ -69,9 +60,9 @@
             String status = (String) redisTemplate.opsForValue().get("submission:" + taskId);
             return new SubmissionResult(taskId, status);
         }
-        @PostMapping("/upload")
-        public Object excelUpload(MultipartHttpServletRequest request) {
-            MultipartFile file = ExcelUtils.findFirstMultipartFile(request);
-            return judge0Service.upload(file);
-        }
+//        @PostMapping("/upload")
+//        public Object excelUpload(MultipartHttpServletRequest request) {
+//            MultipartFile file = ExcelUtils.findFirstMultipartFile(request);
+//            return judge0Service.upload(file);
+//        }
     }
