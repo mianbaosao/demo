@@ -1,9 +1,5 @@
 package org.example.suanfa.thread;
 
-import javax.sql.rowset.spi.SyncFactoryException;
-
-
-
 public class abc {
     private static Object lock = new Object();
     private static Integer state = 1;
