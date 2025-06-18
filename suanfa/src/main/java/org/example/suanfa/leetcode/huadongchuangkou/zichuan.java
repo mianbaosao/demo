@@ -15,24 +15,24 @@ public class zichuan {
      * @param s
      * @return
      */
-    public static int lengthOfLongestSubstring(String s) {
-        int max = 0;  // 最大长度
-        HashSet<Character> set = new HashSet<>();  // 用来存储当前窗口的字符
-        int left = 0;  // 窗口的左边界
-        for (int right = 0; right < s.length(); right++) {
-            // 如果当前字符在窗口内，滑动左边界
-            while (set.contains(s.charAt(right))) {
-                set.remove(s.charAt(left));  // 移除左边界的字符
-                left++;  // 向右移动左边界
+    public static int find(final String s){
+        final HashSet<Character> set = new HashSet<>();
+        int max=0,cnt=0;
+        for (int i = 0; i < s.length(); i++) {
+            if(!set.contains(s.charAt(i))) {
+                set.add(s.charAt(i));
+                cnt++;
+                max=Math.max(max,cnt);
+            }else{
+                while (set.contains(s.charAt(i))){
+                    set.remove(s.charAt(i-cnt));
+                    cnt--;
+                }
+                set.add(s.charAt(i));
+                cnt++;
+                max=Math.max(max,cnt);
             }
-
-            // 将当前字符加入窗口
-            set.add(s.charAt(right));
-
-            // 更新最大长度
-            max = Math.max(max, right - left + 1);
         }
-
         return max;
     }
   /*  public static int lengthOfLongestSubstring(String s) {
@@ -55,8 +55,8 @@ public class zichuan {
 
 
 
-    public static void main(String[] args) {
-        String s = "dvdf";
-        System.out.println(lengthOfLongestSubstring(s));
+    public static void main(final String[] args) {
+        final String s = "dvdf";
+        System.out.println(find(s));
     }
 }
