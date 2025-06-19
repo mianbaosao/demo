@@ -1,33 +1,34 @@
 package org.example.suanfa.leetcode.huadongchuangkou;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author heweitao538 2025/6/18
  */
 public class test {
     public static void main(final String[] args) {
-        final String s="abcabcbb";
-        System.out.println(find(s));
+        System.out.println(find("abacbabc", "abc"));
     }
-    public static int find(final String s){
-        final HashSet<Character> set = new HashSet<>();
-        int max=0,cnt=0;
-        for (int i = 0; i < s.length(); i++) {
-            if(!set.contains(s.charAt(i))) {
-                set.add(s.charAt(i));
-                cnt++;
-                max=Math.max(max,cnt);
-            }else{
-                while (set.contains(s.charAt(i))){
-                    set.remove(s.charAt(i-cnt));
-                    cnt--;
-                }
-                set.add(s.charAt(i));
-                cnt++;
-                max=Math.max(max,cnt);
+
+    public static List<Integer> find(final String s, final String t) {
+        final List<Integer> res = new ArrayList<>();
+        final int n1 = s.length();
+        final int n2 = t.length();
+        if (n1 < n2) {
+            return res;
+        }
+        final char[] a = t.toCharArray();
+        Arrays.sort(a);
+        for (int i = 0; i <= n1 - n2; i++) {
+            final String sub = s.substring(i, i + n2);
+            final char [] b= sub.toCharArray();
+            Arrays.sort(b);
+            if(Arrays.equals(a,b)){
+                res.add(i);
             }
         }
-        return max;
+        return res;
     }
 }
