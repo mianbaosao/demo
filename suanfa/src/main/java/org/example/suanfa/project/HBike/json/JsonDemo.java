@@ -15,6 +15,7 @@ public class JsonDemo {
         private String name;
         private int age;
         private Map<String, String> contacts = new HashMap<>();
+
         @Override
         public String toString() {
             return "User{name='" + name + "', age=" + age + ", contacts=" + contacts + "}";
@@ -26,15 +27,15 @@ public class JsonDemo {
 
         // --------------------- 1. 从JSON字符串解析数据 ---------------------
         String jsonInput = """
-            {
-                "name": "面包",
-                "age": 21,
-                "contacts": {
-                    "email": "bread@example.com",
-                    "phone": "13800999999"
+                {
+                    "name": "面包",
+                    "age": 21,
+                    "contacts": {
+                        "email": "bread@example.com",
+                        "phone": "13800999999"
+                    }
                 }
-            }
-            """;
+                """;
 
         // 将JSON字符串转为Java对象
         User user = mapper.readValue(jsonInput, User.class);
@@ -51,7 +52,7 @@ public class JsonDemo {
         newUser.getContacts().put("wechat", "lisi123");
 
         String jsonOutput = mapper.writerWithDefaultPrettyPrinter()
-                                .writeValueAsString(newUser);
+                .writeValueAsString(newUser);
         System.out.println("生成的JSON:\\n" + jsonOutput);
     }
 }

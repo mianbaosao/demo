@@ -21,6 +21,7 @@ public class streamPractice {
        numbers.stream()
                 .filter(a->a>5)
                 .forEach(a-> System.out.print(a+" "));
+        System.out.println();
 
 
         List<String> words = Arrays.asList("Java", "Python", "C++", "JavaScript", "Go");
