@@ -37,13 +37,14 @@ public class ListNodeTest {
         //1 2 3 4
         ListNode dum=new ListNode(0);
         dum.next=head;
-        ListNode temp=dum;
-        while(temp.next!=null&&temp.next.next!=null){
-            ListNode first=temp.next,second=temp.next.next;
+        ListNode cur=dum;
+        while(cur.next!=null&&cur.next.next!=null){
+            ListNode first=cur.next;
+            ListNode second=cur.next.next;
+            cur.next=second;
             first.next=second.next;
-            temp.next=second;
             second.next=first;
-            temp=temp.next.next;
+            cur=first;
         }
         return dum.next;
     }
