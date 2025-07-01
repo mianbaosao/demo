@@ -7,12 +7,12 @@ package org.example.suanfa.designDemo.单例;
  */
 public class Test2 {
     private static volatile Test2 instance;
-    public Test2() {}
+    public Test2(){};
     public static Test2 getInstance(){
-        if(instance == null){
+        if(instance==null){
             synchronized (Test2.class){
-                if(instance == null){
-                    instance = new Test2();
+                if(instance==null){
+                    instance=new Test2();
                 }
             }
         }
