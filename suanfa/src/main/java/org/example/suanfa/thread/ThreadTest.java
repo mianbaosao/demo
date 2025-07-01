@@ -4,8 +4,9 @@ package org.example.suanfa.thread;
  * @author heweitao538 2025/6/20
  */
 public class ThreadTest {
-    private static Object lock = new Object();
-    private static int state=0;
+    private static Object lock=new Object();
+    private static Integer state=0;
+
     public static void main(String[] args) {
         Thread threadA=new Thread(()->print("A",0));
         Thread threadB=new Thread(()->print("B",1));
@@ -18,11 +19,11 @@ public class ThreadTest {
     private static void print(String a, Integer number) {
         for (int i = 0; i < 10; i++) {
             synchronized(lock){
-                while(state%3!=number){
+                while (state % 3 != number) {
                     try {
                         lock.wait();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 System.out.print(a);
