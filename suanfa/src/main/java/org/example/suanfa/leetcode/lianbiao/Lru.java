@@ -54,7 +54,6 @@ public class Lru {
              cache.remove(last.key);
               curCnt--;
           }
-
       }else{
           cache.get(key).value=value;
           moveToFirst(key);
