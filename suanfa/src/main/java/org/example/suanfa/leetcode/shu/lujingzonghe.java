@@ -25,15 +25,23 @@ public class lujingzonghe {
         return ans;
     }
    static void  dfs1(TreeNode root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         dfs2(root, root.val);
         dfs1(root.left);
         dfs1(root.right);
     }
    static void dfs2(TreeNode root, long val) {
-        if (val == t) ans++;
-        if (root.left != null) dfs2(root.left, val + root.left.val);
-        if (root.right != null) dfs2(root.right, val + root.right.val);
+        if (val == t) {
+            ans++;
+        }
+        if (root.left != null) {
+            dfs2(root.left, val + root.left.val);
+        }
+        if (root.right != null) {
+            dfs2(root.right, val + root.right.val);
+        }
     }
 
     public static void main(String[] args) {

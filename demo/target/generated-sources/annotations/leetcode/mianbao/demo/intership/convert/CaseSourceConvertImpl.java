@@ -1,13 +1,13 @@
 package leetcode.mianbao.demo.intership.convert;
 
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import leetcode.mianbao.demo.intership.po.CaseSource;
 import leetcode.mianbao.demo.intership.po.CaseSourceDTO;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-18T18:11:24+0800",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_202 (Oracle Corporation)"
+    date = "2025-07-10T11:06:39+0800",
+    comments = "version: 1.4.2.Final, compiler: Eclipse JDT (IDE) 3.42.50.v20250628-1110, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 public class CaseSourceConvertImpl implements CaseSourceConvert {
 
@@ -19,12 +19,12 @@ public class CaseSourceConvertImpl implements CaseSourceConvert {
 
         CaseSourceDTO caseSourceDTO = new CaseSourceDTO();
 
-        caseSourceDTO.setId( caseSource.getId() );
-        caseSourceDTO.setUnitName( caseSource.getUnitName() );
         caseSourceDTO.setCaseSourceId( caseSource.getCaseSourceId() );
         caseSourceDTO.setDefendantName( caseSource.getDefendantName() );
+        caseSourceDTO.setId( caseSource.getId() );
         caseSourceDTO.setRegistrant( caseSource.getRegistrant() );
         caseSourceDTO.setRegistrationDate( caseSource.getRegistrationDate() );
+        caseSourceDTO.setUnitName( caseSource.getUnitName() );
 
         return caseSourceDTO;
     }
