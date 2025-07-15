@@ -1,0 +1,21 @@
+<!-- UserMapper.xml -->
+<select id="selectWithRolesByNestedQuery" resultMap="userWithRolesMap">
+    SELECT id, username, password, email, address_id FROM users WHERE id = #{id}
+</select>
+<resultMap id="userWithRolesMap" type="User">
+<id property="id" column="id"/>
+<result property="username" column="username"/>
+<result property="password" column="password"/>
+<result property="email" column="email"/>
+<result property="addressId" column="address_id"/>
+<collection property="roles" column="id" javaType="List" ofType="Role"
+            select="com.example.demo.mapper.RoleMapper.selectRolesByUserId"/>
+</resultMap>
+
+        <!-- RoleMapper.xml -->
+<select id="selectRolesByUserId" resultType="Role">
+SELECT r.id, r.role_name, r.description
+FROM roles r
+JOIN user_role ur ON r.id = ur.role_id
+WHERE ur.user_id = #{userId}
+</select>
