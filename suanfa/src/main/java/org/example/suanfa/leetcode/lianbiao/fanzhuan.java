@@ -41,7 +41,6 @@ public class fanzhuan {
         ListNode node3=new ListNode(3);
         node1.next=node2;
         node2.next=node3;
-        System.out.println(node1.next.val+"  " +node1.val);
         System.out.println(reverseList(node1));
     }
 }
