@@ -4,30 +4,30 @@ package org.example.suanfa.thread;
  * @author heweitao538 2025/6/20
  */
 public class ThreadTest {
-    private static final Object lock =new Object();
-    private static int state=0;
+   private static final Object lock = new Object();
+   public static int cnt=0;
 
     public static void main(String[] args) {
-        Thread threadA=new Thread(()->print("A",0));
-        Thread threadB=new Thread(()->print("B",1));
-        Thread threadC=new Thread(()->print("C",2));
-        threadA.start();
-        threadB.start();
-        threadC.start();
+        Thread A=new Thread(()->print("A",0));
+        Thread B=new Thread(()->print("B",1));
+        Thread C=new Thread(()->print("C",2));
+        A.start();
+        B.start();
+        C.start();
     }
 
-    private static void print(String a, int num) {
+    private static void print(String a, int b) {
         for (int i = 0; i < 10; i++) {
             synchronized(lock){
-                while(state%3!=num){
+                while(cnt%3!=b){
                     try {
                         lock.wait();
-                    }catch (Exception e){
-                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 System.out.print(a);
-                state++;
+                cnt++;
                 lock.notifyAll();
             }
         }
